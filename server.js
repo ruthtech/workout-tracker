@@ -97,16 +97,6 @@ app.delete("/delete/:id", (req, res) => {
   );
 });
 
-app.delete("/clearall", (req, res) => {
-  db.workout.remove({}, (error, response) => {
-    if (error) {
-      res.send(error);
-    } else {
-      res.send(response);
-    }
-  });
-});
-
 app.listen(3000, () => {
   console.log("App running on port 3000!");
 });

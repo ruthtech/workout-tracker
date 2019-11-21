@@ -54,22 +54,6 @@ function updateWorkout(data) {
     workoutTitle.value = data.workoutTitle;
 }
 
-// clearAllExercises.addEventListener("click", function(e) {
-//     fetch("/clearall", {
-//             method: "delete"
-//         })
-//         .then(function(response) {
-//             if (response.status !== 200) {
-//                 console.log("Looks like there was a problem. Status Code: " + response.status);
-//                 return;
-//             }
-//             clearWorkout();
-//         })
-//         .catch(function(err) {
-//             console.log("Fetch Error :-S", err);
-//         });
-// });
-
 savedWorkouts.addEventListener("click", function(e) {
     // Don't need to check if it's null because by definition 
     // it cannot be in the saved list unless it exists.
