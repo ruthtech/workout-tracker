@@ -39,6 +39,7 @@ No automated test suite has been created for these files.
 
 ## Deployment
 To deploy this on a live system, follow the instructions in "Installing". Alternatively, to see this in action, watch the following animated GIF:
+![workout-tracker.gif](./workout-tracker.gif)
 
 
 ## Built With
