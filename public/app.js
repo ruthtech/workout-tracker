@@ -1,7 +1,7 @@
 // sections
-const workoutTitle = document.getElementById("workoutTitle");
-const exercise = document.getElementById("exercise");
-const savedWorkouts = document.getElementById("savedWorkouts");
+let workoutTitle = document.getElementById("workoutTitle");
+let exercise = document.getElementById("exercise");
+let savedWorkouts = document.getElementById("savedWorkouts");
 
 // buttons
 const saveBtn = document.getElementById("save");
@@ -71,24 +71,27 @@ function updateWorkout(data) {
 // });
 
 savedWorkouts.addEventListener("click", function(e) {
-    // TODO FINISH
-    // populate the UI
+    // Don't need to check if it's null because by definition 
+    // it cannot be in the saved list unless it exists.
+    const data_id = e.target.getAttribute("data-id"); 
 
-    // First, fetch the record from the database
-    let element = e.target;
-    const data = getData(element);
-    let data_id = element.getAttribute("data-id");
     fetch("/find/" + data_id, { method: "get" })
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            updateWorkout(data);
-        })
-        .catch(function(err) {
-            console.log("Fetch Error :-S", err);
-        });
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        populateActiveWorkout(data);
+    })
+    .catch(function(err) {
+        console.log("Fetch Error :-S", err);
+    });
+
 });
+
+function populateActiveWorkout(data) {
+    workoutTitle.value = data.workoutTitle;
+    exercise.value = data.exercises.toString();
+}
 
 saveBtn.addEventListener("click", function(e) {
     const data_id = e.target.getAttribute("data-id");
@@ -121,8 +124,8 @@ function updateWorkout(data_id) {
         return response.json();
     })
     .then(function(data) {
-        element.innerText = title
         resetWorkout();
+        getResults(); // populate the saved Workouts
     })
     .catch(function(err) {
         console.log("Fetch Error :-S", err);
@@ -140,7 +143,7 @@ function addWorkout() {
         },
         body: JSON.stringify({
             workoutTitle: document.getElementById("workoutTitle").value,
-            exercise: exercises
+            exercises: exercises
         })
     })
     .then(res => res.json())
