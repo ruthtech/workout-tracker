@@ -153,19 +153,13 @@ function addWorkout() {
 };
 
 delBtn.addEventListener("click", function(e) {
-    fetch("/submit", {
-        method: "delete",
-        headers: {
-            Accept: "application/json, text/plain, */*",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            workoutTitle: document.getElementById("workoutTitle").value,
-            exercises: document.getElementById("exercise").value.split(',')
-        })
+    const data_id = workoutTitle.getAttribute("data-id");
+    fetch("/delete/" + data_id, {
+        method: "delete"
     })
     .then(res => res.json())
-    .then(res => newWorkoutSnippet([res]));
+    .then(getResults());
+    // .then(res => newWorkoutSnippet([res]));
     resetWorkout();
 });
 
