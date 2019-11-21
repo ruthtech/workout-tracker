@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Workout Tracker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Workout Tracker</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div>Create a new workout by entering its name and exercises below.</div>
+                <div class="pt-3">Click on an exercise to edit its title or repetitions</div>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col bg-light border border-dark pt-3 pb-3 flex-column d-flex">
+                <div id="user-input">
+                    <h5>Workout Title</h5>
+                    <input type="text" id="workoutTitle" class="w-100"/>
+                    <h5>Exercise</h5>
+                    <input type="text" id="exercise" class="w-100">
+                    <h5>Repetitions</h5>
+                    <input type="number" id="repetitions" class="w-100">
+                    <button id="make-new" class="btn-secondary mt-3">Save</button>
+                </div>
+            </div>
+            <div class="col bg-light border pt-3 pb-3">
+                <h5 id="activeWorkoutTitle">Active Workout</h5>
+                <div id="results"></div>
+                <button id="save" class="btn-secondary">Save</button>
+                <button id="clear-all-exercises" class="btn-secondary">Delete All</button>
+            </div>
+        </div>
+        <div class="row mt-3 pb-3 bg-light border">
+            <div class="col">
+                <h5>Saved Workouts</h5>
+                <div id="savedWorkouts"></div>
+                <button id="clear-all-workouts" class="btn-secondary">Delete All</button>
+            </div>            
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
