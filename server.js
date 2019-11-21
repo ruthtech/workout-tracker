@@ -22,19 +22,6 @@ mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/${databaseUrl}`
 
 const db = mongojs(databaseUrl, collections);
 
-//
-// Mongoose way
-//
-// app.post("/submit", ({ body }, res) => {
-//   User.create(body)
-//     .then(dbUser => {
-//       res.json(dbUser);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
-
 
 db.on("error", error => {
   console.log("Database Error:", error);
@@ -85,26 +72,6 @@ app.post("/update/:id", (req, res) => {
       if (err) return res.send(500, { error: err });
       return res.send(data);
   });
-  
-  // // TODO FINISH
-  // db.workout.update(
-  //   {
-  //     _id: mongojs.ObjectId(req.params.id)
-  //   },
-  //   {
-  //     $set: {
-  //       workoutTitle: req.body.workoutTitle,
-  //       exercises: req.body.exercises
-  //     }
-  //   },
-  //   (error, data) => {
-  //     if (error) {
-  //       res.send(error);
-  //     } else {
-  //       res.send(data);
-  //     }
-  //   }
-  // );
 });
 
 app.delete("/delete/:id", (req, res) => {
@@ -113,19 +80,6 @@ app.delete("/delete/:id", (req, res) => {
 
     res.send(data);
   });
-
-  // db.workout.remove(
-  //   {
-  //     _id: mongojs.ObjectID(req.params.id)
-  //   },
-  //   (error, data) => {
-  //     if (error) {
-  //       res.send(error);
-  //     } else {
-  //       res.send(data);
-  //     }
-  //   }
-  // );
 });
 
 app.listen(3000, () => {
