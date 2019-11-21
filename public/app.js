@@ -78,7 +78,7 @@ function populateActiveWorkout(data) {
 
 saveBtn.addEventListener("click", function(e) {
     const data_id = workoutTitle.getAttribute("data-id");
-    if(data_id == null) {
+    if((data_id == null) || (data_id == "null")) {
         // First time this is called, so create it and update it with the data_id attribute
         addWorkout();
     } else {
