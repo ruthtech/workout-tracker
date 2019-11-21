@@ -41,17 +41,15 @@ function clearWorkout() {
 }
 
 function resetWorkout() {
-    const exercise = document.getElementById("exercise");
     exercise.value = "";
-    const workoutTitle = document.getElementById("workoutTitle");
     workoutTitle.value = "";
+    workoutTitle.setAttribute("data-id", null);
 }
 
 function updateWorkout(data) {
-    const exercise = document.getElementById("exercise");
     exercise.value = data.exercise;
-    const workoutTitle = document.getElementById("workoutTitle");
     workoutTitle.value = data.workoutTitle;
+    workoutTitle.setAttribute("data-id", data._id);
 }
 
 savedWorkouts.addEventListener("click", function(e) {
