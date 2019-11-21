@@ -14,6 +14,7 @@ Then open your browser and open localhost:3000
   * MongoDB
   * Express
   * Morgan
+  * Mongoose
 
 
 ### Installing
@@ -25,6 +26,7 @@ Then open your browser and open localhost:3000
        * npm install mongodb
        * npm install express
        * npm install morgan
+       * npm install mongoose
     6. Then use your Git terminal to execute server.js. 
 
 
@@ -53,6 +55,7 @@ To deploy this on a live system, follow the instructions in "Installing". Altern
      * express
      * mongodb
      * morgan
+     * mongoose
 
 ## Contributing
 This project is not open to contributions.
