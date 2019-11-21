@@ -69,7 +69,7 @@ app.post("/update/:id", (req, res) => {
     {
       $set: {
         workoutTitle: req.body.workoutTitle,
-        exercise: req.body.exercise
+        exercises: req.body.exercises
       }
     },
     (error, data) => {

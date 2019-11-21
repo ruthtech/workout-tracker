@@ -90,11 +90,12 @@ savedWorkouts.addEventListener("click", function(e) {
 
 function populateActiveWorkout(data) {
     workoutTitle.value = data.workoutTitle;
+    workoutTitle.setAttribute("data-id", data._id); // store the data id for updating later
     exercise.value = data.exercises.toString();
 }
 
 saveBtn.addEventListener("click", function(e) {
-    const data_id = e.target.getAttribute("data-id");
+    const data_id = workoutTitle.getAttribute("data-id");
     if(data_id == null) {
         // First time this is called, so create it and update it with the data_id attribute
         addWorkout();
